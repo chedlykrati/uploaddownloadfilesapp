@@ -52,10 +52,10 @@ export class AppComponent {
    // throw new Error('Method not implemented.');
    switch(httpEvent.type){
     case HttpEventType.UploadProgress:
-      this.updateStatus(httpEvent.loaded , httpEvent.total! , 'Uploading');
+      this.updateStatus(httpEvent.loaded , httpEvent.total! , 'Uploading...');
       break;
     case HttpEventType.DownloadProgress:
-      this.updateStatus(httpEvent.loaded , httpEvent.total! , 'Downloading');
+      this.updateStatus(httpEvent.loaded , httpEvent.total! , 'Downloading...');
       break; 
     case HttpEventType.ResponseHeader:
       console.log('Header returned' , httpEvent);
@@ -76,6 +76,7 @@ export class AppComponent {
           httpEvent.headers.get('File-Name'));
           */
         }
+        this.fileStatus.status = 'done';
       break;      
 
       default:
@@ -85,7 +86,7 @@ export class AppComponent {
    }
 
   }
-  updateStatus(loaded: number, total: number , requestType: string) {
+  private updateStatus(loaded: number, total: number , requestType: string) {
     //throw new Error('Method not implemented.');
     this.fileStatus.status = 'progress';
     this.fileStatus.requestType = requestType;
