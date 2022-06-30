@@ -90,6 +90,6 @@ export class AppComponent {
     //throw new Error('Method not implemented.');
     this.fileStatus.status = 'progress';
     this.fileStatus.requestType = requestType;
-    this.fileStatus.percent = Math.round(100 * loaded / total);
+    this.fileStatus.percent = Math.round(100 * loaded / total) ;
   }
 }
