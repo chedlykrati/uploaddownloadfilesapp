@@ -24,7 +24,7 @@ export class FileService {
 
   //define function to download file
   doawnload(filename: string): Observable<HttpEvent<Blob>>{
-    return this.http.get(`${this.server}/file/download/{filename}` , {
+    return this.http.get(`${this.server}/file/download/${filename}` , {
       reportProgress: true,
       observe: 'events',
       responseType: 'blob'
